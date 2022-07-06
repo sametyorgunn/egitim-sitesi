@@ -1,0 +1,48 @@
+﻿@using EntityLayer.Concrete
+@model List<Lesson_icerik>
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_ElearningLayout_icerik.cshtml";
+}
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/card.css" />
+
+</head>
+<body>
+    <br /><br /><br />
+    <div class="footerk container">
+        <div class="row" id="ads">
+            @foreach (var i in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card rounded">
+                        <div class="card-image">
+
+                            <img class="img-fluid" src="~/Ders_icerik_resim/@i.image_yol" alt="Alternate Text" />
+                        </div>
+                        <div class="card-image-overlay m-auto">
+                          @*   <span class="card-notify-badge">@i.icerik_name</span>
+                            <a href="@Url.Action("PresentationWatch", "Admin",new { Area = "Admin" })?Yol=@i.Yol" class="card-detail-badge">Derse Başla</a>*@
+                       </div>
+                        <div class="card-body text-center">
+                            <div class="ad-title m-auto">
+                                <h5>@i.icerik_name Dersi</h5>
+                            </div>
+                                 <a class="ad-btn" href="/Home/izle/@i.içerik_id"><div class="spart">izle</div></a>
+                        </div>
+                    </div>
+                    <br /><br />
+                </div>
+                
+            }
+        </div>
+    </div>
+
+    <br /><br /><br />
+</body>
+</html>
+

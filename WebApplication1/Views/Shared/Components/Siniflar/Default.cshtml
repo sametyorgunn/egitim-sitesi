@@ -1,0 +1,28 @@
+﻿@using EntityLayer.Concrete
+@model List<Siniflar>
+
+<h1>Siniflar Listesi</h1>
+
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Sınıf Adı</th>
+      <th scope="col">Düzenle</th>
+      <th scope="col">Sil</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+      @foreach(var i in Model)
+      {
+    <tr>
+      <th scope="row">@i.Sinif_id</th>
+      <td>@i.Sinif_name</td>
+      <td><a href="/Admin/Admin/EditClass/@i.Sinif_id" class="btn btn-warning">Düzenle</a></td>
+      <td><a href="/Admin/Admin/DeleteClass/@i.Sinif_id" class="btn btn-danger">Sil</a></td>
+    </tr>
+      }
+  </tbody>
+</table>

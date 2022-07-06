@@ -1,0 +1,23 @@
+﻿@using EntityLayer.Concrete
+@model Siniflar
+@{
+    ViewData["Title"] = "SinifAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Sinif Ekleme</h1>
+
+
+@using (Html.BeginForm("SinifAdd", "Admin", FormMethod.Post, new 
+                                       { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Sinif Seviyesi")
+    @Html.TextBoxFor(x=>x.Sinif_name, new { @class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Sinif_name)
+    <br />
+
+    <button class="btn btn-info">Sınıfı Kaydet</button>
+}
+
+
+@await Component.InvokeAsync("Siniflar")

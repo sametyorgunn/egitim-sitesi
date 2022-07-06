@@ -1,0 +1,21 @@
+﻿@using EntityLayer.Concrete
+@model Lesson_icerik
+@{
+    ViewData["Title"] = "izle";
+    //Layout = "~/Views/Shared/_ElearningLayout_icerik.cshtml";
+}
+
+<style>
+    .cui-ctl .cui-fa-sm  .cui-toolbar-button-right{
+    display:none!important;
+}
+</style>
+<br /><br /><br />
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <iframe src="@Model.Yol" width="100%" height="100%" frameborder="0">Bu <a target="_blank" href="https://office.com/webapps">Office</a> tarafından sağlanan eklenmiş bir <a target="_blank" href="https://office.com">Microsoft Office</a> belgesidir.</iframe>
+            </div>
+        </div>
+    </div>

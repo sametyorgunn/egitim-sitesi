@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@model Lesson
+@{
+    ViewData["Title"] = "AddLessons";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+
+@using (Html.BeginForm("AddLessons", "Admin", FormMethod.Post, new 
+                                       { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Ders adı")
+    @Html.TextBoxFor(x=>x.Lesson_name, new { @class="form-control"})
+    @Html.ValidationMessageFor(x=>x.Lesson_name)
+    <br />
+
+
+    @await Component.InvokeAsync("SinifListCheckBox")
+    @* @Html.Label("Sınıf")
+    @Html.DropDownListFor(x => x.SiniflarSinif_id,(List<SelectListItem>)ViewBag.v, new { @class = "form-control"})*@
+    <br />
+
+
+     @Html.Label("Ders kapak resmi")<br />
+     @Html.TextBoxFor(x=>x.Lesson_resim, new { @type="file"})
+     @Html.ValidationMessage("resim yükleyiniz")
+    <br /><br />
+    <button class="btn btn-info">Dersi Kaydet</button>
+}

@@ -1,0 +1,33 @@
+﻿@using EntityLayer.Concrete
+@model List<Header>
+@foreach(var item in Model)
+{
+<header id="header">
+		<div class="head-container">
+			<div class="quote">
+				<p>@item.Header_baslik</p>
+				<h5>@item.Header_icerik</h5>
+				<div class="play">
+					<img src="~/LearnEd_E-learning_Website-master/images/icon/play.png" alt="play"><span><a href="https://www.youtube.com/watch?v=KFyrgDO1WXk" target="_blank">Şimdi İzle</a></span>
+				</div>
+			</div>
+			<div class="svg-image">
+				<img src="~/LearnEd_E-learning_Website-master/images/extra/svg1.jpg" alt="svg">
+			</div>
+		</div>
+		<div class="side-menu" id="side-menu">
+			<div class="close" onclick="sideMenu(1)"><img src="~/LearnEd_E-learning_Website-master/images/icon/close.png" alt=""></div>
+			<div class="user">
+				<img src="" alt="Kullanıcı Adı">
+			</div>
+			<ul>
+				<li><a href="#about_section">Hakkımızda</a></li>
+				<li><a href="#portfolio_section">Portfolyö</a></li>
+				<li><a href="#services_section">Servisler</a></li>
+				<li><a href="#contactus_section">İletişim</a></li>
+				<li><a class="btn btn-primary" href="/Login/Index/">Giriş</a></li>
+			</ul>
+		</div>
+</header>
+
+}

@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@model Lesson_icerik
+@{
+    ViewData["Title"] = "Dersicerikguncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Dersicerikguncelle</h1>
+
+@using (Html.BeginForm("Dersicerikguncelle", "Admin", FormMethod.Post, new 
+                                       { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Ders id")
+    @Html.TextBoxFor(x=>x.içerik_id, new { @class="form-control" , @readonly="readonly"})
+    @Html.ValidationMessageFor(x=>x.icerik_name)
+    <br />
+    @Html.Label("Ders başlığı")
+    @Html.TextBoxFor(x=>x.icerik_name, new { @class="form-control"})
+    @Html.ValidationMessageFor(x=>x.icerik_name)
+    <br />
+
+    @Html.Label("Ders")
+    @Html.DropDownListFor(x => x.LessonLesson_id,(List<SelectListItem>)ViewBag.v, new { @class = "form-control"})
+    <br />
+ 
+    @Html.Label("Sunumun yolunu giriniz:")
+    @Html.TextBoxFor(x=>x.Yol, new {@class="form-control"})
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+}
+

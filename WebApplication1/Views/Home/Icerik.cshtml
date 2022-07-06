@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model IEnumerable<Lesson>
+
+@{
+    ViewData["Title"] = "Icerik";
+    Layout = "~/Views/Shared/_ElearningLayout_icerik.cshtml";
+}
+
+
+<!-- Courses Available -->
+	<div class="inbt">
+		Robotik kodlama Dersleri
+	</div>
+
+	<div class="ccard">
+	<center>
+		<div class="ccardbox">
+			@foreach(var item in Model)
+			{
+			<a  href="/Home/Detail/@item.Lesson_id" >
+				<div class="dcard">
+					<div class="fpart"><img src="~/Derskapakresim/@item.Lesson_resim_yol"></div>
+					<div class="spart">@item.Lesson_name</div>
+				</div>
+			</a>
+			}
+		</div>
+	</center>
+	</div>
+
+
+
+
+
+
+	
+

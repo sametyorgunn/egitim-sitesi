@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@using WebApplication1.Models
+@model List<AppUser>
+@{
+    ViewData["Title"] = "PersonList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Öğrenci Adı</th>
+      <th scope="col">kullanıcı Adı</th>
+     <th scope="col"> Sınıfı</th>
+      <th scope="col">Şube</th>
+      <th scope="col">Okul No</th>    
+      <th scope="col">Düzenle</th>
+      <th scope="col">Sil</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach(var i in Model)
+      {
+    <tr>
+      <th scope="row">@i.Id</th>
+      <td>@i.namesurname</td>
+      <td>@i.UserName</td>
+      <td>@i.Siniflar.Sinif_name.</td>
+      <td>@i.sube</td>
+      <td>@i.okul_no</td>
+      <td><a href="/Admin/Admin/PersonEdit/@i.Id" class="btn btn-warning">Düzenle</a></td>
+      <td><a href="/Admin/Admin/PersonDelete/@i.Id" class="btn btn-danger">Sil</a></td>
+    </tr>
+      }
+  </tbody>
+</table>
+

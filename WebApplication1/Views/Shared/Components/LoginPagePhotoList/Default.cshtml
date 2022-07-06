@@ -1,0 +1,19 @@
+﻿@using EntityLayer.Concrete
+@model List<LoginPhoto>
+
+
+<div class="row">
+
+    @foreach (var i in Model)
+    {
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src="~/Login_Sayfası_resim/@i.photo_path" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <a href="/Admin/Admin/LoginPhotoDelete/@i.photo_id" class="btn btn-danger">Sil</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

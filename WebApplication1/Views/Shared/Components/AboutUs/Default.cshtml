@@ -1,0 +1,17 @@
+﻿@using EntityLayer.Concrete
+@model List<Hakkımızda>
+@foreach (var i in Model)
+{
+    <div class="diffSection" id="about_section">
+        <center><p style="font-size: 50px; padding: 100px">@i.Hakkinda_baslik</p></center>
+        <div class="about-content">
+            <div class="side-image">
+                <img class="sideImage" src="~/LearnEd_E-learning_Website-master/images/extra/e3.jpg">
+            </div>
+            <div class="side-text">
+                <h2>@i.Hakkinda_Altbaslik</h2>
+                <p>@i.Hakkinda_icerik</p>
+            </div>
+        </div>
+    </div>
+}

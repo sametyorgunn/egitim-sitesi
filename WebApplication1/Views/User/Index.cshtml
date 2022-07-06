@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserProfileLayout.cshtml";
+}
+
+
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">isim soyisim</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.namesurname
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">kullanıcı Adı</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.username
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Şubesi</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.sinif @ViewBag.sube
+                                       </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Okul no</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.okulno
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  @await Component.InvokeAsync("UserProfile")

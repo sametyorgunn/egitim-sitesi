@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="~/LearnEd_E-learning_Website-master/images/icon/favicon.png">
+	<title>Robodem</title>
+	<link rel="stylesheet" type="text/css" href="~/LearnEd_E-learning_Website-master/subjects/subjects.css">
+	<script type="text/javascript" src="~/LearnEd_E-learning_Website-master/script.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+	<style>
+		
+.get-started {
+	margin-left: 50px;
+	padding: 5px 20px;
+	border: 2px solid #DF2771;
+	border-radius: 20px;
+	text-decoration: none;
+	
+	transition: .5s;
+	background-color: #DF2771;
+	color: #fff;
+}
+.get-started:hover {
+	color: #2e2e2e;
+	background: #fff;
+}
+	</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+	<header>
+		<div class="nav" id="nav">
+			<div id="learned-logo">
+			<a href="/Home/Icerik/"><img src="~/resimler/erdemlogo1-removebg-preview.png" style="width:120px; margin-left:40px;"></a></div>
+			<div class="switch-tab" id="switch-tab" onclick="switchTAB()"><img src="~/LearnEd_E-learning_Website-master/images/icon/menu.png"></div>
+			<ul id="list-switch">
+				@*<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/d1.png" class="icon">Anasınıfı</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/paper.png" class="icon">1.Sınıf</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/computer.png" class="icon">2.Sınıf</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/data.png" class="icon">3.Sınıf</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/algo.png" class="icon">4.Sınıf</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/projects.png" class="icon">5.sınıf</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/projects.png" class="icon">6.sınıf</a></li>
+				<li><a href=""><img src="~/LearnEd_E-learning_Website-master/images/courses/projects.png" class="icon">7..sınıf</a></li>*@
+			</ul>
+			<div class="search" id="search-switch">
+@*				<input type="text" placeholder="Arama..." class="srch"><button id="srchbtn"><img src="~/LearnEd_E-learning_Website-master/images/icon/search.png"></button>
+*@				<a class="get-started"  href="/User/Index/">Profilim</a>
+			</div>
+		</div>
+	</header>
+	@RenderBody()
+<footer class="footery" >
+	<div class="footerd footer-container">
+		<div class="left-col">
+			<img src="~/resimler/erdemlogo1-removebg-preview.png" style="width: 200px;">
+			<div class="logo"></div>
+			<div class="social-media">
+				<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\fb.png"></a>
+				<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\insta.png"></a>
+				<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\tt.png"></a>
+				<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\ytube.png"></a>
+				<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\linkedin.png"></a>
+			</div><br><br>
+			<p class="rights-text">Copyright © 2022 Created By SesaSoft</p>
+			<br><p><img src="~/LearnEd_E-learning_Website-master/images/icon/location.png">Çekmeköy<br>İstanbul</p><br>
+			<p><img src="~/LearnEd_E-learning_Website-master/images/icon/mail.png">&nbsp; SesaSoft@gmail.com</p>
+		</div>
+		<div class="right-col">
+			<h1 style="color: #fff">Mail Bültenimiz</h1>
+			<div class="border"></div><br>
+			<p>GÜncellemelerden haberdar olmak için Mailinizi Giriniz</p>
+			<form class="newsletter-form">
+				<input class="txtb" type="email" placeholder="Mailinizi Giriniz">
+				<input class="btn" type="submit" value="Gönder">
+			</form>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

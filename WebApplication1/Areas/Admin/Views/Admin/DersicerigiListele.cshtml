@@ -1,0 +1,82 @@
+﻿@model EntityLayer.Concrete.Lesson
+@{
+    ViewData["Title"] = "DersicerigiListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("DersicerigiListele", "Admin", FormMethod.Post))
+{
+   
+    @Html.Label("Ders Seçimi")
+    @Html.DropDownListFor(x => x.Lesson_id,(List<SelectListItem>)ViewBag.v, new{@class="form-control",id="dersSelectBox"})
+    <br />
+   
+}
+<br />
+<br />
+<div id="content">
+
+</div>
+
+
+@section footer{
+    <script>
+        $("#dersSelectBox").change(function(){
+            $.post("@Url.Action("IcerikListele","Admin")",{id:$(this).val()})
+            .then(function(data){
+                var content=""
+                data.map(function(item){
+                //    content+=`<h1 >${item.icerik_name}</h1>`
+                //})
+                //$("h1").remove();
+                //  $("#content").append(content)
+                      content+=`<div class="card px-4 py-3 shadow-sm mb-4">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-sm-12 d-flex justify-content-center">
+                                        <a href="">
+                                            <img src="${window.location.origin}/Ders_icerik_resim/${item.image_yol}" class="img-fluid rounded" title="egitim">
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-6 col-sm-12 d-flex flex-column justify-content-between">
+                                            <div>
+                                            <p class="text-secondary fs-13"></p>
+                                            <a href="" class="text-decoration-none"> <h3 class="text-dark mb-0">${item.icerik_name}</h3></a>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <p><i class="bi bi-check2-circle"></i> </p>
+                                                <p><i class="bi bi-check2-circle"></i></p>
+                                                <p><i class="bi bi-check2-circle"></i></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12 mb-md-0 mb-4 d-flex flex-column justify-content-center d-flex flex-column justify-content-center align-items-center">
+                                          
+                                            <a href="${window.location.origin}/Admin/Admin/Dersiceriksil/${item.içerik_id}" class="btn btn-primary">
+                                                <i class="bi bi-chevron-right me-2"></i>Dersi Sil
+                                            </a>
+                                            <br>
+                                             <a href="${window.location.origin}/Admin/Admin/Dersicerikguncelle/${item.içerik_id}" class="btn btn-primary">
+                                                <i class="bi bi-chevron-right me-2"></i>Güncelle
+                                            </a>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            `})
+                      $(".card").remove();
+                       $("#content").append(content)
+                       
+//});               $('.btn .btn-primary').click(function() {
+//                         window.location.href = '/Admin/Admin/Dersiceriksil/${item.içerik_id}';
+//                         return true;
+               
+
+            })
+            .catch(function(){
+
+            })
+
+        })
+    </script>
+}
+
+

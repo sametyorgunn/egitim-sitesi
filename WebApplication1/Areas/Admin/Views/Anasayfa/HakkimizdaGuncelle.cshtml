@@ -1,0 +1,32 @@
+﻿@using EntityLayer.Concrete
+@model Hakkımızda  
+  
+@{
+    ViewData["Title"] = "HakkimizdaGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Hakkimizda Guncelle</h1>
+
+<form method="post">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Başlık </label>
+  <input type="text" value=@Model.Hakkinda_id class="form-control" name="Hakkinda_id" id="exampleFormControlInput1" placeholder="" readonly>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Başlık </label>
+  <input type="text" class="form-control" value=@Model.Hakkinda_baslik name="Hakkinda_baslik" id="exampleFormControlInput1" placeholder="Başlık giriniz" required>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Alt Başlık </label>
+  <input type="text" class="form-control" value=@Model.Hakkinda_Altbaslik name="Hakkinda_Altbaslik" id="exampleFormControlInput1" placeholder="Alt Başlık giriniz" required>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">İçerik </label>
+  <textarea class="form-control" value=@Model.Hakkinda_icerik name="Hakkinda_icerik" id="exampleFormControlTextarea1" rows="5" required></textarea>
+</div>
+<br />
+<button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
+
+

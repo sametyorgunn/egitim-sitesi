@@ -1,0 +1,44 @@
+﻿@using EntityLayer.Concrete;
+@using WebApplication1.Models
+@model AppUser
+@{
+    ViewData["Title"] = "PersonEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<br />
+
+@using (Html.BeginForm("PersonEdit","Admin",FormMethod.Post))
+    {
+
+    @Html.Label("Öğrenci id")
+    @Html.TextBoxFor(x=>x.Id, new {@class="form-control" , @readonly="readonly"})
+
+    @Html.Label("Öğrenci Adı")
+    @Html.TextBoxFor(x=>x.namesurname, new {@class="form-control"})
+
+    @Html.Label("Öğrenci Kullanıcı Adı")
+    @Html.TextBoxFor(x=>x.UserName, new {@class="form-control"})
+
+   @*@Html.Label("Öğrenci Şifre")
+    @Html.TextBoxFor(x=>x.PasswordHash, new {@class="form-control"})*@
+
+    @Html.Label("Öğrenci Şube ")
+    @Html.TextBoxFor(x=>x.sube, new {@class="form-control"})
+
+    @Html.Label("Öğrenci Okul No")
+    @Html.TextBoxFor(x=>x.okul_no, new {@class="form-control"})
+
+    @Html.Label("Öğrenci Sınıfı")
+    @Html.DropDownListFor(x => x.SiniflarSinif_id,(List<SelectListItem>)ViewBag.siniflar, new { @class = "form-control"})
+    <br />
+
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+
+    }
+
+
+

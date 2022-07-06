@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form method="post">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Başlık </label>
+  <input type="text" class="form-control" name="Hakkinda_baslik" id="exampleFormControlInput1" placeholder="Başlık giriniz" required>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Alt Başlık </label>
+  <input type="text" class="form-control" name="Hakkinda_Altbaslik" id="exampleFormControlInput1" placeholder="Alt Başlık giriniz" required>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">İçerik </label>
+  <textarea class="form-control" name="Hakkinda_icerik" id="exampleFormControlTextarea1" rows="5" required></textarea>
+</div>
+<br />
+<button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+
+
+<br /><br />
+
+@await Component.InvokeAsync("Hakkimizda_adminList")

@@ -1,0 +1,70 @@
+﻿@*
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="~/LearnEd_E-learning_Website-master/images/icon/favicon.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comaptible" content="IE=edge">
+	<title>Robodem</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="~/LearnEd_E-learning_Website-master/style.css">
+	<script type="text/javascript" src="~/LearnEd_E-learning_Website-master/script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script>
+		$(window).on('scroll', function(){
+  			if($(window).scrollTop()){
+  			  $('nav').addClass('black');
+ 			 }else {
+ 		   $('nav').removeClass('black');
+ 		 }
+		})
+	</script>
+</head>
+<body>
+	<nav>
+		<div class="logo"><img src="~/resimler/erdemlogo1-removebg-preview.png" alt="logo"></div>
+		<ul>
+			<li><a class="active" href="/Home/Index/">Anasayfa</a></li>
+			<li><a href="#portfolio_section">Portfolyö</a></li>
+			<li><a href="#team_section">Ekibimiz</a></li>
+			<li><a href="#services_section">Servisler</a></li>
+			<li><a href="#contactus_section">İletişim</a></li>
+		</ul>
+		<div class="srch"><input type="text" class="search" placeholder="Arama..."><img src="~/LearnEd_E-learning_Website-master/images/icon/search.png" alt="search" onclick=slide()></div>
+		<a class="get-started" href="/Login/Index/">Giriş</a>
+		<img src="~/LearnEd_E-learning_Website-master/images/icon/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
+	</nav>
+	RenderBody()
+
+	<footer>
+		<div class="footer-container">
+			<div class="left-col">
+				 <img src="~/resimler/erdemlogo1-removebg-preview.png" style="width: 200px;">
+				<div class="logo"></div>
+				<div class="social-media">
+					<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\fb.png"></a>
+					<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\insta.png"></a>
+					<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\tt.png"></a>
+					<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\ytube.png"></a>
+					<a href="#"><img src="~/LearnEd_E-learning_Website-master/images/icon\linkedin.png"></a>
+				</div><br><br>
+				<p class="rights-text">Copyright © 2022 by SesaSoft</p>
+				<br><p><img src="~/LearnEd_E-learning_Website-master/images/icon/location.png"> Çekmeköy<br>İstanbul</p><br>
+				<p><img src="~/LearnEd_E-learning_Website-master/images/icon/mail.png">&nbsp; SesaSoft@gmail.com</p>
+			</div>
+			<div class="right-col">
+				<h1 style="color: #fff">Mail Bülteni</h1>
+				<div class="border"></div><br>
+				<p>Güncellemelerimizden haberdar olmak için mail adresinizi giriniz.</p>
+				<form class="newsletter-form">
+					<input class="txtb" type="email" placeholder="Mail Adresini Giriniz">
+					<input class="btn" type="submit" value="Gönder
+">
+				</form>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>
+*@

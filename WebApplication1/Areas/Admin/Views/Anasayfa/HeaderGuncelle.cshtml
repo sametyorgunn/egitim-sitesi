@@ -1,0 +1,30 @@
+﻿@using EntityLayer.Concrete
+@model Header
+@{
+    ViewData["Title"] = "HeaderGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Header Guncelle</h1>
+
+
+<form method="post">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">id </label>
+  <input type="text" class="form-control" value="@Model.Header_id" name="Header_id" id="exampleFormControlInput1" placeholder="id" readonly>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Başlık </label>
+  <input type="text" class="form-control" value="@Model.Header_baslik" name="Header_baslik" id="exampleFormControlInput1" placeholder="Başlık" required>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Alt Başlık </label>
+  <input type="text" class="form-control" value="@Model.Header_icerik" name="Header_icerik" id="exampleFormControlInput1" placeholder="içerik girinz" required>
+</div>
+
+<br />
+<button type="submit" class="btn btn-primary">Guncelle</button>
+</form>
+
+
+

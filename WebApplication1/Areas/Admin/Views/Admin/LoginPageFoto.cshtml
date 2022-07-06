@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "LoginPageFoto";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Giriş Ekranı Resim Değişme</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Resim Seçiniz</label>
+        <input class="form-control" name="photo" type="file" id="formFile">
+    </div>
+    <button type="submit">Kaydet</button>
+</form>
+
+
+<br />
+<br />
+
+@await Component.InvokeAsync("LoginPagePhotoList")

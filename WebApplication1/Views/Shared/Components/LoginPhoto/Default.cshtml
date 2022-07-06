@@ -1,0 +1,12 @@
+﻿
+@using EntityLayer.Concrete
+@model List<LoginPhoto>
+
+@foreach(var i in Model)
+{
+<div class="text-wrap text-center d-flex align-items-center order-md-last">
+    <div class="text w-100">
+        <img src="~/Login_Sayfası_resim/@i.photo_path" class="loginfoto" />
+    </div>
+</div>
+}
