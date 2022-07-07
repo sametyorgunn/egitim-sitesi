@@ -52,7 +52,7 @@ namespace WebApplication1
                 options.AccessDeniedPath = "/ErrorPage/Error1/";
                 options.Cookie.Name = "egitimcookie";
                 options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
                 options.LoginPath = "/Login/Index/";
                 // ReturnUrlParameter requires 
                 //using Microsoft.AspNetCore.Authentication.Cookies;

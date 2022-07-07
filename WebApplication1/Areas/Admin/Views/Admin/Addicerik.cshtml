@@ -8,6 +8,7 @@
 
 <br />
 
+
 @using (Html.BeginForm("Addicerik", "Admin", FormMethod.Post, new 
                                        { enctype = "multipart/form-data" }))
 {
@@ -18,11 +19,12 @@
 
     @Html.Label("Sınıf seçiniz")
     @Html.DropDownListFor(x => x.Sinif_id,(List<SelectListItem>)ViewBag.Siniflarlist, new { @class = "form-control", id="SinifSelectBox"} )
+
+
     <br />
 
     @Html.Label("Dersler")
-    <select class="form-control" id="DerslerDropDown">
-
+    <select class="form-control" id="DerslerDropDown" name="LessonLesson_id">
     </select>
    
     <br />
@@ -39,7 +41,7 @@
    
 }
 @section footer{
-@*<script>
+<script>
 	$(document).ready(function(){
 	  getModel($("#SinifSelectBox").val())
 	})
@@ -51,10 +53,9 @@
            
 			var modelContent=""
 			data.map(item=>{
-                 //console.log(item)
 				modelContent+=`<option value="${item.value}">${item.text}</option>`
 			})
-			$("#DerslerDropdown").append(modelContent);
+			$("#DerslerDropDown.form-control").append(modelContent);
 		})
 		.catch(err=>console.log(err))
 	}
@@ -63,35 +64,6 @@
 		getModel(this.value)
 	})
 </script>
-*@
 
 
-
-<script>
-$("#DerslerDropDown").change(function () {
-        var Sinif_id = $(this).val();
-        console.log(Sinif_id);
-        loadstates(Sinif_id);
-    });
-
-    function loadstates(Sinif_id) {
-           var strUrl = '@Url.Action("GetSinif", "User")';
-            $.ajax({
-                url: strUrl ,
-                type: "GET",
-                data: {Sinif_id: Sinif_id},
-                success: function (data) {
-                    $.each(data, function (index, value) {
-                        var text1 = '<option value=' + value.stateId + '>' +
-                            value.name+
-                            '</option>';
-                        $("#ddlStates").append(text1);
-                    });
-                },
-                error: function (result) {
-                    alert("error occured");
-                }
-            });
-        }
-    </script>
 }

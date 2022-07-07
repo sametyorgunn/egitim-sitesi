@@ -101,7 +101,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             c.SaveChanges();
             TempData["success"] = "Ders başarıyla kaydedildi";
             return View();
-            
+
 
 
 
@@ -212,7 +212,7 @@ namespace WebApplication1.Areas.Admin.Controllers
                 string path = Path.Combine(wwwRootPath + "/Ders_icerik_resim/", filename);  // + DateTime.Now.ToString("yymmssfff") 
                 using (var filestream = new FileStream(path, FileMode.Create))
                 {
-                    await p.image.CopyToAsync(filestream);    
+                    await p.image.CopyToAsync(filestream);
                 }
                 lim.TAdd(p);
                 TempData["success"] = "içerik Başarıyla kaydedildi";
@@ -222,13 +222,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             return View(p);
         }
 
-        //public void ampsil()
-        //{
-        //    Context c = new Context();
-        //    Lesson_icerik li = new Lesson_icerik();
-        //    string degis = "amp;";
-        //    li.Yol.Replace(degis, "");
-        //}
+       
 
         public IActionResult EditLesson(int id)
         {
@@ -376,9 +370,7 @@ namespace WebApplication1.Areas.Admin.Controllers
                 ogrenci.okul_no = app.okul_no;
                 ogrenci.sube = app.sube;
                 ogrenci.SiniflarSinif_id = app.SiniflarSinif_id;
-                //ogrenci.PasswordHash = _userManager.PasswordHasher.HashPassword(ogrenci, app.PasswordHash);
-
-
+                ogrenci.PasswordHash = app.PasswordHash;
                 context.Users.Update(ogrenci);
                 context.SaveChanges();
                 TempData["success"] = "kişi başarıyla güncellendi";
@@ -441,17 +433,28 @@ namespace WebApplication1.Areas.Admin.Controllers
                                                        Value = x.Lesson_id.ToString()
                                                    }).ToList();
 
+
             ViewBag.v = categoryvalues;
-            if (ModelState.IsValid)
+            Lesson_icerik icerik;
+            using (Context con = new Context())
             {
-                lim.TUpdate(li);
-                TempData["success"] = "icerik başarıyla güncellendi";
-                return RedirectToAction("DersicerigiListele", "Admin");
+                icerik = con.lesson_İceriks.Where(x => x.içerik_id == li.içerik_id).FirstOrDefault();
+                icerik.icerik_name = li.icerik_name;
+                icerik.Yol = li.Yol;
             }
-            else
-            {
-                return Ok();
-            }
+            lim.TUpdate(icerik);
+            TempData["success"] = "icerik başarıyla güncellendi";
+            return RedirectToAction("DersicerigiListele", "Admin");
+
+            //if (ModelState.IsValid)
+            //{
+                
+                
+            //}
+            //else
+            //{
+            //    return Ok();
+            //}
 
 
         }
@@ -563,11 +566,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             TempData["success"] = "resim başarıyla silindi";
             return RedirectToAction("LoginPageFoto", "Admin");
         }
-
-
-
-
-
 
         [HttpPost]
         public IActionResult GetSinif(int id)

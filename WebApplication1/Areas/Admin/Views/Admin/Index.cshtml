@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="wrapper wrapper-content">
+@*<div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-3">
             <div class="ibox ">
@@ -53,93 +53,93 @@
   @await Component.InvokeAsync("GetUserInfo")
 
     
-</div>
-@*                        
-<div class="row">
-    <div class="col-lg-12">
-        <div class="ibox ">
-            <div class="ibox-title">
-                <h5>Transactions worldwide</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ibox-content">
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <table class="table table-hover margin bottom">
-                            <thead>
-                                <tr>
-                                    <th style="width: 1%" class="text-center">No.</th>
-                                    <th>Transaction</th>
-                                    <th class="text-center">Date</th>
-                                    <th class="text-center">Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td>
-                                        Security doors
-                                    </td>
-                                    <td class="text-center small">16 Jun 2014</td>
-                                    <td class="text-center"><span class="label label-primary">$483.00</span></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-center">2</td>
-                                    <td>
-                                        Wardrobes
-                                    </td>
-                                    <td class="text-center small">10 Jun 2014</td>
-                                    <td class="text-center"><span class="label label-primary">$327.00</span></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-center">3</td>
-                                    <td>
-                                        Set of tools
-                                    </td>
-                                    <td class="text-center small">12 Jun 2014</td>
-                                    <td class="text-center"><span class="label label-warning">$125.00</span></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-center">4</td>
-                                    <td> Panoramic pictures</td>
-                                    <td class="text-center small">22 Jun 2013</td>
-                                    <td class="text-center"><span class="label label-primary">$344.00</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">5</td>
-                                    <td>Phones</td>
-                                    <td class="text-center small">24 Jun 2013</td>
-                                    <td class="text-center"><span class="label label-primary">$235.00</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">6</td>
-                                    <td>Monitors</td>
-                                    <td class="text-center small">26 Jun 2013</td>
-                                    <td class="text-center"><span class="label label-primary">$100.00</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-lg-6">
-                        <div id="world-map" style="height: 300px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>*@
 
    
+   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Toplam Ders Sayısı</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.ders
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Toplam Ders İçeriği</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.icerik
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Üye Sayısı</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.uye
+                                       </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card">
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="numbers">
+                                        <p class="text-sm mb-0 text-capitalize font-weight-bold">Admin Kullanıcı Adı</p>
+                                        <h5 class="font-weight-bolder mb-0">
+                                            @ViewBag.admn
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-4 text-end">
+                                    <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                                        <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  @await Component.InvokeAsync("UserProfile")
 
 
