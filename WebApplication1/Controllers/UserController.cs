@@ -77,7 +77,12 @@ namespace WebApplication1.Controllers
 
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             values.UserName = model.username;
+           
             values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, model.PasswordHash);
+            //if (values.PasswordHash == model.PasswordHash)
+            //{
+
+            //}
             var result = await _userManager.UpdateAsync(values);
             return RedirectToAction("Index", "User");
 

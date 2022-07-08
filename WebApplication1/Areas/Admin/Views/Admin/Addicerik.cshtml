@@ -12,7 +12,7 @@
 @using (Html.BeginForm("Addicerik", "Admin", FormMethod.Post, new 
                                        { enctype = "multipart/form-data" }))
 {
-    @Html.Label("Ders başlığı")
+    @Html.Label("içerik başlığı")
     @Html.TextBoxFor(x=>x.icerik_name, new { @class="form-control"})
     @Html.ValidationMessageFor(x=>x.icerik_name)
     <br />
@@ -37,7 +37,7 @@
     @Html.Label("Ders icerik Resim Ekle")<br />
     @Html.TextBoxFor(x=>x.image,new{@type="file"})
     <br /><br />
-    <button class="btn btn-info">Yazıyı kaydet</button>
+    <button class="btn btn-info">içeriği kaydet</button>
    
 }
 @section footer{

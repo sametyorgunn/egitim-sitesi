@@ -34,6 +34,7 @@ namespace WebApplication1
                 x.Password.RequireNonAlphanumeric = false;
                 x.Password.RequireDigit = false;
                 x.Password.RequireUppercase = false;
+                x.Password.RequiredUniqueChars = 0;
                 
 
             })

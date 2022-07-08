@@ -48,7 +48,6 @@
     <None Include="wwwroot\login-form-17\js\jquery.min.js" />
     <None Include="wwwroot\login-form-17\js\main.js" />
     <None Include="wwwroot\login-form-17\js\popper.js" />
-    <None Include="wwwroot\soft-ui-dashboard-main\.github\workflows\main.yml" />
     <None Include="wwwroot\soft-ui-dashboard-main\assets\css\soft-ui-dashboard.css.map" />
     <None Include="wwwroot\soft-ui-dashboard-main\assets\fonts\nucleo-icons.svg" />
     <None Include="wwwroot\soft-ui-dashboard-main\assets\fonts\nucleo-icons.woff2" />

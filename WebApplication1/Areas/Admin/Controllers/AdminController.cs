@@ -371,10 +371,11 @@ namespace WebApplication1.Areas.Admin.Controllers
                 ogrenci.sube = app.sube;
                 ogrenci.SiniflarSinif_id = app.SiniflarSinif_id;
                 ogrenci.PasswordHash = app.PasswordHash;
+                ogrenci.PasswordHash = _userManager.PasswordHasher.HashPassword(ogrenci,ogrenci.PasswordHash);
+                //ogrenci.PasswordHash = _userManager.PasswordHasher.HashPassword(ogrenci,app.PasswordHash);
                 context.Users.Update(ogrenci);
                 context.SaveChanges();
                 TempData["success"] = "kişi başarıyla güncellendi";
-                //um.TUpdate(usrv);
 
                 return RedirectToAction("PersonList", "Admin");
             }

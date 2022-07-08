@@ -26,7 +26,7 @@
         @Html.TextBoxFor(x=>x.PasswordHash, new {@class="form-control"})*@
     <div class="form-group">
         <span asp-validation-for="@Model.PasswordHash" class="text-danger"></span>
-        <input type="password" class="form-control" value="@Model.PasswordHash" name="PasswordHash" placeholder="Şifre" required="">
+        <input type="password" class="form-control" value="" name="PasswordHash" placeholder="Şifre" required="">
     </div>
 
     @Html.Label("Öğrenci Şube ")
