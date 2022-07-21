@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models
+﻿namespace egitim_proje.Models
 {
     public class UserUpdateViewModel
     {
@@ -14,4 +14,5 @@
         public string Sinif_name { get; set; }
 
     }
+    
 }

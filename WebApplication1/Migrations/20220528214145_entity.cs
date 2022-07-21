@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebApplication1.Migrations
+namespace egitim_proje.Migrations
 {
     public partial class entity : Migration
     {

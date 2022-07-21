@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace WebApplication1.ViewComponents.LoginPagePhotoList
+namespace egitim_proje.ViewComponents.LoginPagePhotoList
 {
     public class LoginPagePhotoList:ViewComponent
     {

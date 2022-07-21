@@ -214,6 +214,9 @@ namespace EntityLayer.Migrations
                     b.Property<int>("SiniflarSinif_id")
                         .HasColumnType("int");
 
+                    b.Property<bool>("durum")
+                        .HasColumnType("bit");
+
                     b.HasKey("Lesson_id");
 
                     b.HasIndex("SiniflarSinif_id");
@@ -233,6 +236,9 @@ namespace EntityLayer.Migrations
 
                     b.Property<string>("Yol")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("durum")
+                        .HasColumnType("bit");
 
                     b.Property<string>("icerik_name")
                         .HasColumnType("nvarchar(max)");
@@ -271,9 +277,6 @@ namespace EntityLayer.Migrations
 
                     b.Property<string>("Sinif_name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("check_box")
-                        .HasColumnType("bit");
 
                     b.HasKey("Sinif_id");
 

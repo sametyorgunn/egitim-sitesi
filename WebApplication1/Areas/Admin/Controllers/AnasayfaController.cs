@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.Areas.Admin.Controllers
+namespace egitim_proje.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]

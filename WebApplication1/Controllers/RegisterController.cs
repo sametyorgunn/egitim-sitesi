@@ -6,20 +6,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.Controllers
+namespace egitim_proje.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class RegisterController : Controller
     {
         private readonly UserManager<AppUser> _usermanager;
+        private readonly RoleManager<AppRole> _rolemanager;
 
-
-        public RegisterController(UserManager<AppUser> usermanager)
+        public RegisterController(UserManager<AppUser> usermanager, RoleManager<AppRole> rolemanager)
         {
             _usermanager = usermanager;
+            _rolemanager = rolemanager;
         }
+
+        //public RegisterController(UserManager<AppUser> usermanager)
+        //{
+        //    _usermanager = usermanager;
+        //}
+
+
 
         [HttpGet]
         public IActionResult Index()
@@ -55,6 +63,16 @@ namespace WebApplication1.Controllers
                 var result = await _usermanager.CreateAsync(user, p.password);
                 if (result.Succeeded)
                 {
+                    if(!_rolemanager.RoleExistsAsync("Ogrenci").Result)
+                    {
+                        AppRole role = new AppRole
+                        { 
+                            Name="Ogrenci"
+                        };
+                        IdentityResult roleResult = _rolemanager.CreateAsync(role).Result;
+
+                    }
+                    _usermanager.AddToRoleAsync(user, "Ogrenci").Wait();
                     return RedirectToAction("Index","Register");
                 }
                 else

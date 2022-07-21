@@ -17,12 +17,14 @@
 		<div class="ccardbox">
 			@foreach(var item in Model)
 			{
+		<center>
 			<a  href="/Home/Detail/@item.Lesson_id" >
 				<div class="dcard">
 					<div class="fpart"><img src="~/Derskapakresim/@item.Lesson_resim_yol"></div>
 					<div class="spart">@item.Lesson_name</div>
 				</div>
 			</a>
+		</center>
 			}
 		</div>
 	</center>

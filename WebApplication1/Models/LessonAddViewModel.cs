@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Models
+namespace egitim_proje.Models
 {
     public class LessonAddViewModel
     {

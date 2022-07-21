@@ -1,9 +1,9 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.ViewComponents.Hakkimizda_adminList
+namespace egitim_proje.ViewComponents.Hakkimizda_adminList
 {
     public class Hakkimizda_adminList:ViewComponent
     {

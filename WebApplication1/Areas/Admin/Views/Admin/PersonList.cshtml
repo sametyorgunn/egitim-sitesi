@@ -1,6 +1,11 @@
-﻿@using EntityLayer.Concrete
-@using WebApplication1.Models
-@model List<AppUser>
+﻿@*@using EntityLayer.Concrete
+@using egitim_proje.Models*@
+@*@model List<AppUser>
+*@
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+@model IPagedList<EntityLayer.Concrete.AppUser>
+
 @{
     ViewData["Title"] = "PersonList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,7 +15,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th hidden scope="col">#</th>
       <th scope="col">Öğrenci Adı</th>
       <th scope="col">kullanıcı Adı</th>
      <th scope="col"> Sınıfı</th>
@@ -24,7 +29,7 @@
       @foreach(var i in Model)
       {
     <tr>
-      <th scope="row">@i.Id</th>
+      <th hidden scope="row">@i.Id</th>
       <td>@i.namesurname</td>
       <td>@i.UserName</td>
       <td>@i.Siniflar.Sinif_name.</td>
@@ -37,3 +42,5 @@
   </tbody>
 </table>
 
+<br /><br />
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("PersonList",new{page}))

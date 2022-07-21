@@ -1,9 +1,9 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.ViewComponents.AboutUs
+namespace egitim_proje.ViewComponents.AboutUs
 {
     public class AboutUs:ViewComponent
     {

@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.ViewComponents.GetUserInfo
+namespace egitim_proje.ViewComponents.GetUserInfo
 {
     public class GetUserInfo:ViewComponent   
     {

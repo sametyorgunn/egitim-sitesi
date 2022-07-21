@@ -7,7 +7,6 @@
 <br />
 @using (Html.BeginForm("DersicerigiListele", "Admin", FormMethod.Post))
 {
-   
     @Html.Label("Ders Seçimi")
     @Html.DropDownListFor(x => x.Lesson_id,(List<SelectListItem>)ViewBag.v, new{@class="form-control",id="dersSelectBox"})
     <br />
@@ -18,8 +17,6 @@
 <div id="content">
 
 </div>
-
-
 @section footer{
     <script>
         $("#dersSelectBox").change(function(){
@@ -58,6 +55,13 @@
                                              <a href="${window.location.origin}/Admin/Admin/Dersicerikguncelle/${item.içerik_id}" class="btn btn-primary">
                                                 <i class="bi bi-chevron-right me-2"></i>Güncelle
                                             </a>
+                                              <a href="${window.location.origin}/Admin/Admin/DersicerikPasifYap/${item.içerik_id}" class="btn btn-primary">
+                                                <i class="bi bi-chevron-right me-2"></i>Pasif Yap
+                                            </a>
+                                             <a href="${window.location.origin}/Admin/Admin/DersicerikAktifYap/${item.içerik_id}" class="btn btn-primary">
+                                                <i class="bi bi-chevron-right me-2"></i>Aktif Yap
+                                            </a>
+                                            
                                         </div>                                        
                                     </div>
                                 </div>

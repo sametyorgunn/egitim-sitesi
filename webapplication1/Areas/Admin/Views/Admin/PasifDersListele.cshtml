@@ -1,0 +1,31 @@
+﻿@using EntityLayer.Concrete
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+@model IPagedList<EntityLayer.Concrete.Lesson>
+@{
+    ViewData["Title"] = "PasifDersListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th hidden scope="col">#</th>
+      <th scope="col">Ders Adı</th>
+      <th scope="col">Durumu</th>
+      <th scope="col">Aktif Yap</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach(var i in Model)
+      {
+    <tr>
+      <th hidden scope="row">@i.Lesson_id</th>
+      <td>@i.Lesson_name</td>
+      <td>@i.durum</td>
+      <td><a href="/Admin/Admin/AktifYap/@i.Lesson_id" class="btn btn-success">Aktif Yap</a></td>
+    </tr>
+      }
+  </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("PasifDersListele",new{page}))

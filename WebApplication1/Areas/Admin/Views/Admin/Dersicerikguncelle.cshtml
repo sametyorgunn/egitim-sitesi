@@ -20,7 +20,7 @@
     <br />
 
     @Html.Label("Ders")
-    @Html.DropDownListFor(x => x.LessonLesson_id,(List<SelectListItem>)ViewBag.v, new { @class = "form-control"})
+    @Html.DropDownListFor(x => x.LessonLesson_id,(List<SelectListItem>)ViewBag.v, new { @class = "form-control",@readonly="readonly"})
     <br />
  
     @Html.Label("Sunumun yolunu giriniz:")

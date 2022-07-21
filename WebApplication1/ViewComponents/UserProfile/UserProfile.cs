@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace WebApplication1.ViewComponents.UserProfile
+namespace egitim_proje.ViewComponents.UserProfile
 {
     public class UserProfile:ViewComponent
     {

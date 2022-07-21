@@ -18,6 +18,7 @@ namespace EntityLayer.Concrete
         [NotMapped]
         public IFormFile Lesson_resim { get; set; }
         public string Lesson_resim_yol { get; set; }
+        public bool durum { get; set; }
         public int SiniflarSinif_id { get; set; }
         public Siniflar Siniflar { get; set; }
         public List<Lesson_icerik> Lesson_İceriks { get; set; }

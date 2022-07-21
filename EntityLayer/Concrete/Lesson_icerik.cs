@@ -19,8 +19,8 @@ namespace EntityLayer.Concrete
         [NotMapped]
         public IFormFile image { get; set; }
         public string Yol { get; set; }
-        //[NotMapped]
-        //public IFormFile file { get; set; }
+        public bool durum { get; set; }
+       
         public int LessonLesson_id { get; set; }
         public Lesson Lesson { get; set; }
     }

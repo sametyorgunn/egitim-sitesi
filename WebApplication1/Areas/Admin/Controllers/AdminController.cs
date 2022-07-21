@@ -15,9 +15,11 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using egitim_proje.Models;
+using X.PagedList;
+using X.PagedList.Mvc.Core;
 
-namespace WebApplication1.Areas.Admin.Controllers
+namespace egitim_proje.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
@@ -87,6 +89,7 @@ namespace WebApplication1.Areas.Admin.Controllers
 
                 Lesson lesson = new Lesson
                 {
+                    durum = true,
                     Lesson_name = p.Lesson_name,
                     Lesson_resim = p.Lesson_resim,
                     Lesson_resim_yol = p.Lesson_resim_yol,
@@ -144,10 +147,10 @@ namespace WebApplication1.Areas.Admin.Controllers
 
         }
 
-        public IActionResult DersListele()
+        public IActionResult DersListele(int page=1)
         {
             Context context = new Context();
-            var values = context.lessons.ToList();
+            var values = context.lessons.ToPagedList(page,10);
             return View(values);
         }
 
@@ -199,11 +202,8 @@ namespace WebApplication1.Areas.Admin.Controllers
                                                  }).ToList();
 
             ViewBag.siniflarlist = siniflarlist;
-
-
             if (ModelState.IsValid)
             {
-
                 p.Yol = p.Yol.Replace("amp;", String.Empty);
                 string wwwRootPath = _webHost.WebRootPath;
                 string filename = Path.GetFileNameWithoutExtension(p.image.FileName);
@@ -214,16 +214,13 @@ namespace WebApplication1.Areas.Admin.Controllers
                 {
                     await p.image.CopyToAsync(filestream);
                 }
+                p.durum = true;
                 lim.TAdd(p);
                 TempData["success"] = "içerik Başarıyla kaydedildi";
                 return View();
-
             }
             return View(p);
         }
-
-       
-
         public IActionResult EditLesson(int id)
         {
             Context context = new Context();
@@ -273,12 +270,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             {
                 return View();
             }
-
         }
-
-
-
-
         public IActionResult DeleteLesson(int id)
         {
             Context c = new Context();
@@ -305,17 +297,13 @@ namespace WebApplication1.Areas.Admin.Controllers
 
             return View(value);
         }
-
-
-
-        public IActionResult PersonList()
+        public IActionResult PersonList(int page=1)
         {
-            var result = um.GetListJoinSinif();
+            var result = um.GetListJoinSinif().ToPagedList(page,10);
             return View(result);
         }
         public IActionResult PersonDelete(int id)
         {
-
             Context c = new Context();
             var res = c.Users.Find(id);
             um.TDelete(res);
@@ -385,8 +373,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             }
 
         }
-
-
 
 
         [HttpPost]
@@ -578,6 +564,92 @@ namespace WebApplication1.Areas.Admin.Controllers
 
             return Ok(value);
         }
+
+        public IActionResult PasifYap(int id)
+        {
+            
+            using(Context context = new Context())
+            {
+                var icerik = context.lessons.Find(id);
+                //icerik.pasif = "pasif";
+                //context.SaveChanges();
+                icerik.durum = false;
+                context.lessons.Update(icerik);
+                context.SaveChanges();
+
+
+            }
+
+            return RedirectToAction("DersListele", "Admin");
+        }
+
+        public IActionResult AktifYap(int id)
+        {
+
+            using (Context context = new Context())
+            {
+                var icerik = context.lessons.Find(id);
+                //icerik.pasif = "pasif";
+                //context.SaveChanges();
+                icerik.durum = true;
+                context.lessons.Update(icerik);
+                context.SaveChanges();
+
+
+            }
+
+            return RedirectToAction("DersListele", "Admin");
+        }
+
+        public IActionResult DersicerikPasifYap(int id)
+        {
+            using(Context context = new Context())
+            {
+                var icerik = context.lesson_İceriks.Find(id);
+                icerik.durum = false;
+                context.lesson_İceriks.Update(icerik);
+                context.SaveChanges();
+                return RedirectToAction("DersicerigiListele", "Admin");
+
+            }
+            //return Ok();
+        }
+
+       
+        public IActionResult DersicerikAktifYap(int id)
+        {
+            using (Context context = new Context())
+            {
+                var icerik = context.lesson_İceriks.Find(id);
+                icerik.durum = true;
+                context.lesson_İceriks.Update(icerik);
+                context.SaveChanges();
+                return RedirectToAction("DersicerigiListele", "Admin");
+            }
+            //return Ok();
+        }
+
+
+
+        public IActionResult PasifDersListele(int page=1)
+        {
+            using(Context context =new Context())
+            {
+                var dersler = context.lessons.Where(x => x.durum == false).ToPagedList(page,10);  /*ToList();*/
+                return View(dersler);
+            }
+        }
+
+
+        public IActionResult PasifDersicerigiListele(int page=1)
+        {
+            using (Context context = new Context())
+            {
+                var dersler = context.lesson_İceriks.Where(x => x.durum == false).ToPagedList(page, 10);
+                return View(dersler);
+            }
+        }
+
 
 
 

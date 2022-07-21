@@ -1,9 +1,9 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.ViewComponents.Portfolyo
+namespace egitim_proje.ViewComponents.Portfolyo
 {
     public class Portfolyo:ViewComponent
     {

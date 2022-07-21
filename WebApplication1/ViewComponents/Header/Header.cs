@@ -1,9 +1,9 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.ViewComponents.Header
+namespace egitim_proje.ViewComponents.Header
 {
     public class Header:ViewComponent
     {

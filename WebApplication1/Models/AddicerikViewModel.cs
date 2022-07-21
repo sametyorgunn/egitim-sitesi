@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebApplication1.Models
+namespace egitim_proje.Models
 {
     public class AddicerikViewModel
     {

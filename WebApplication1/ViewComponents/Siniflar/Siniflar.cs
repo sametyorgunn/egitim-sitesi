@@ -1,9 +1,9 @@
 ﻿using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.ViewComponents.Siniflar
+namespace egitim_proje.ViewComponents.Siniflar
 {
     public class Siniflar:ViewComponent
     {

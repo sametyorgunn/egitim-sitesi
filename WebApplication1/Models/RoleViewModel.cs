@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.Models
+namespace egitim_proje.Models
 {
     public class RoleViewModel
     {

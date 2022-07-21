@@ -14,9 +14,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.Controllers
+namespace egitim_proje.Controllers
 {
     public class HomeController : Controller
     {
@@ -34,36 +34,44 @@ namespace WebApplication1.Controllers
             _webHost = webHost;
         }
 
-
+        [Authorize(Roles = "Ogrenci,Admin")]
         public IActionResult Index()
         {
             return View();
         }
 
        
-        [Authorize]
+        [Authorize(Roles ="Ogrenci,Admin")]
         public IActionResult Icerik()
         {
             Context c = new Context();
+            
             var tumdersler = c.lessons.ToList();
             var username = User.Identity.Name;
             //var id = c.Users.Where(x => x.UserName == username).Select(y => y.Sinif_id).FirstOrDefault();
             //var value = c.lessons.Where(x => x.Sinif_id == id).ToList();
             //return View(value);
-
             var adminid = c.Users.Where(x => x.UserName == username).Select(y => y.Id).FirstOrDefault();
             var admina = c.UserRoles.Where(x => x.UserId == adminid).Select(y => y.RoleId).FirstOrDefault();
 
             if(admina==1)
             {
+
                 var ff = c.lessons.ToList();
                 return View(ff);
+                //return RedirectToAction("Index", "Admin", new { Areas = "Admin" });
+                
+
+
             }
             else
             {
+                
                 var id = c.Users.Where(x => x.UserName == username).Select(y => y.SiniflarSinif_id).FirstOrDefault();
-                var value = c.lessons.Where(x => x.SiniflarSinif_id == id).ToList();
+                var value = c.lessons.Where(x => x.SiniflarSinif_id == id && x.durum==true).ToList();
                 return View(value);
+               
+               
             }
             
  
@@ -80,7 +88,7 @@ namespace WebApplication1.Controllers
             //return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Ogrenci,Admin")]
         [HttpGet]
         public IActionResult Details(int id)
         {   
@@ -88,12 +96,12 @@ namespace WebApplication1.Controllers
             var values = context.lesson_İceriks.Where(x=>x.LessonLesson_id==id).ToList();
             return View(values);
         }
-        [Authorize]
+        [Authorize(Roles = "Ogrenci,Admin")]
         [HttpGet]
         public IActionResult Detail(int id)
         {
             Context context = new Context();
-            var values = context.lesson_İceriks.Where(x => x.LessonLesson_id == id).ToList();
+            var values = context.lesson_İceriks.Where(x => x.LessonLesson_id == id&&x.durum==true).ToList();
             return View(values);
         }
         //[Authorize]
@@ -138,7 +146,7 @@ namespace WebApplication1.Controllers
         //    return slides;
         //}
 
-        [Authorize]
+        [Authorize(Roles = "Ogrenci,Admin")]
         public IActionResult izle(int id)
         {
             Context context = new Context();

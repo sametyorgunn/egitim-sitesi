@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace WebApplication1.ViewComponents.SinifListCheckBox
+namespace egitim_proje.ViewComponents.SinifListCheckBox
 {
     public class SinifListCheckBox:ViewComponent
     {

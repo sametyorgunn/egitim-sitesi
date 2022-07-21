@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using egitim_proje.Areas.Admin.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1.Areas.Admin.Controllers
+namespace egitim_proje.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles ="Admin")]
@@ -128,18 +129,26 @@ namespace WebApplication1.Areas.Admin.Controllers
         {
             var userid = (int)TempData["UserId"];
             var user = _userManager.Users.FirstOrDefault(x => x.Id == userid);
-            foreach (var item in model)
+            try
             {
-                if (item.exists)
+                foreach (var item in model)
                 {
-                    await _userManager.AddToRoleAsync(user, item.name);
+                    if (item.exists)
+                    {
+                        await _userManager.AddToRoleAsync(user, item.name);
+                    }
+                    else
+                    {
+                        await _userManager.RemoveFromRoleAsync(user, item.name);
+                    }
                 }
-                else
-                {
-                    await _userManager.RemoveFromRoleAsync(user, item.name);
-                }
+                return RedirectToAction("RoleList", "Role");
             }
-            return RedirectToAction("RoleList", "Role");
+            catch
+            {
+                return RedirectToAction("Error1", "ErrorPage");
+            }
+        
         }
     }
 }

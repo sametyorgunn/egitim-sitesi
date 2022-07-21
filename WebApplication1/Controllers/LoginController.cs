@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using egitim_proje.Models;
+using System.Linq;
+using System;
 
-namespace WebApplication1.Controllers
+namespace egitim_proje.Controllers
 {
     [AllowAnonymous]
     public class LoginController : Controller
@@ -31,7 +33,26 @@ namespace WebApplication1.Controllers
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Icerik", "Home");
+                    Context c = new Context();
+                    var adminid = c.Users.Where(x => x.UserName == p.username).Select(y => y.Id).FirstOrDefault();
+                    var admina = c.UserRoles.Where(x => x.UserId == adminid).Select(y => y.RoleId).FirstOrDefault();
+
+                    if (admina == 1)
+                    {
+
+                       
+                        return RedirectToAction("Index", "Admin", new { Areas = "Admin" });
+
+
+
+                    }
+                    else
+                    {
+
+                        return RedirectToAction("Icerik", "Home");
+
+                    }
+                    //return RedirectToAction("Icerik", "Home");
                 }
                 else
                 {

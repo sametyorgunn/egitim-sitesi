@@ -10,9 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication1.Models;
+using egitim_proje.Models;
 
-namespace WebApplication1
+namespace egitim_proje
 {
     public class Startup
     {
