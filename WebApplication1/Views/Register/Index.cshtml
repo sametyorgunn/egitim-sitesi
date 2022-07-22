@@ -28,7 +28,7 @@
             <form class="m-t" role="form" asp-action="Index">
                 <div class="form-group">
                     <span asp-validation-for="@Model.namesurname" class="text-danger"></span>
-                    <input type="text" class="form-control" asp-for="@Model.namesurname" placeholder="İsim Soyisim" >
+                    <input type="text" class="form-control" asp-for="@Model.namesurname" placeholder="İsim Soyisim" required >
                 </div>
 
                @* <div class="form-group">
@@ -38,25 +38,25 @@
 
                 <div class="form-group">
                     <span asp-validation-for="@Model.username" class="text-danger"></span>
-                    <input type="text" class="form-control" asp-for="@Model.username" placeholder="kullanıcı adı" >
+                    <input type="text" class="form-control" asp-for="@Model.username" placeholder="kullanıcı adı" required  >
                 </div>
 
                 <div class="form-group">
                     <span asp-validation-for="@Model.password" class="text-danger"></span>
-                    <input type="password" class="form-control" asp-for="@Model.password" placeholder="Şifre" required="">
+                    <input type="password" class="form-control" asp-for="@Model.password" placeholder="Şifre" required>
                 </div>
 
                 <div class="form-group">
                     <span asp-validation-for="@Model.confirmpassword" class="text-danger"></span>
-                    <input type="password" class="form-control" asp-for="@Model.confirmpassword" placeholder="Şifre Tekrar" required="">
+                    <input type="password" class="form-control" asp-for="@Model.confirmpassword" placeholder="Şifre Tekrar" required>
                 </div>
                  <div class="form-group">
                     <span asp-validation-for="@Model.sube" class="text-danger"></span>
-                    <input type="text" class="form-control" asp-for="@Model.sube" placeholder="şube giriniz" required="">
+                    <input type="text" class="form-control" asp-for="@Model.sube" placeholder="şube giriniz" required>
                 </div>
                   <div class="form-group">
                     <span asp-validation-for="@Model.okul_no" class="text-danger"></span>
-                    <input type="text" class="form-control" asp-for="@Model.okul_no" placeholder="okul no giriniz" required="">
+                    <input type="text" class="form-control" asp-for="@Model.okul_no" placeholder="okul no giriniz" required>
                 </div>
                  <div class="form-group">
                       @Html.Label("Sınıf")

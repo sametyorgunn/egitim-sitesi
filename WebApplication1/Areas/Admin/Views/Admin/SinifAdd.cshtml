@@ -12,7 +12,7 @@
                                        { enctype = "multipart/form-data" }))
 {
     @Html.Label("Sinif Seviyesi")
-    @Html.TextBoxFor(x=>x.Sinif_name, new { @class="form-control"})
+    @Html.TextBoxFor(x=>x.Sinif_name, new { @class="form-control",@required="required"})
     @Html.ValidationMessageFor(x=>x.Sinif_name)
     <br />
 

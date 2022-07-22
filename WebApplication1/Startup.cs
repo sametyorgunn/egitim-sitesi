@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using egitim_proje.Models;
 
+
 namespace egitim_proje
 {
     public class Startup
@@ -40,30 +41,18 @@ namespace egitim_proje
             })
                 .AddEntityFrameworkStores<Context>();
 
-            //services.AddSession();
-            //services.AddAuthentication(
-            //   CookieAuthenticationDefaults.AuthenticationScheme)
-            //   .AddCookie(x =>
-            //   {
-            //       x.LoginPath = "/Login/Index";
-            //   }
-            //   );
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.AccessDeniedPath = "/ErrorPage/Error1/";
-                options.Cookie.Name = "egitimcookie";
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
-                options.LoginPath = "/Login/Index/";
-                // ReturnUrlParameter requires 
-                //using Microsoft.AspNetCore.Authentication.Cookies;
-                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
-                options.SlidingExpiration = true;
-            });
+       
 
-
-
-
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.AccessDeniedPath = "/ErrorPage/Error1/";
+            //    options.Cookie.Name = "egitimcookie";
+            //    options.Cookie.HttpOnly = true;
+            //    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+            //    options.LoginPath = "/Login/Index/";
+            //    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+            //    options.SlidingExpiration = true;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -84,11 +73,11 @@ namespace egitim_proje
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseAuthentication();
             app.UseRouting();
-            //app.UseSession();
             app.UseAuthorization();
+
+
             app.UseEndpoints(endpoints =>
             {
 

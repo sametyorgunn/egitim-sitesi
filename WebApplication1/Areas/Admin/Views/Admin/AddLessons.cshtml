@@ -12,7 +12,7 @@
                                        { enctype = "multipart/form-data" }))
 {
     @Html.Label("Ders adı")
-    @Html.TextBoxFor(x=>x.Lesson_name, new { @class="form-control"})
+    @Html.TextBoxFor(x=>x.Lesson_name, new { @class="form-control",@required="required"})
     @Html.ValidationMessageFor(x=>x.Lesson_name)
     <br />
 
@@ -24,7 +24,7 @@
 
 
      @Html.Label("Ders kapak resmi")<br />
-     @Html.TextBoxFor(x=>x.Lesson_resim, new { @type="file"})
+     @Html.TextBoxFor(x=>x.Lesson_resim, new { @type="file",@required="required"})
      @Html.ValidationMessage("resim yükleyiniz")
     <br /><br />
     <button class="btn btn-info">Dersi Kaydet</button>

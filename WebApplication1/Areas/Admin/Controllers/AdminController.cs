@@ -78,7 +78,7 @@ namespace egitim_proje.Areas.Admin.Controllers
             string wwwRootPath = _webHost.WebRootPath;
             string filename = Path.GetFileNameWithoutExtension(p.Lesson_resim.FileName);
             string extension = Path.GetExtension(p.Lesson_resim.FileName);
-            p.Lesson_resim_yol = filename = filename + extension;//yol == path
+            p.Lesson_resim_yol = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;//yol == path
             string path = Path.Combine(wwwRootPath + "/Derskapakresim/", filename);  // + DateTime.Now.ToString("yymmssfff") 
             using (var filestream = new FileStream(path, FileMode.Create))
             {
@@ -208,7 +208,7 @@ namespace egitim_proje.Areas.Admin.Controllers
                 string wwwRootPath = _webHost.WebRootPath;
                 string filename = Path.GetFileNameWithoutExtension(p.image.FileName);
                 string extension = Path.GetExtension(p.image.FileName);
-                p.image_yol = filename = filename + extension;
+                p.image_yol = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
                 string path = Path.Combine(wwwRootPath + "/Ders_icerik_resim/", filename);  // + DateTime.Now.ToString("yymmssfff") 
                 using (var filestream = new FileStream(path, FileMode.Create))
                 {

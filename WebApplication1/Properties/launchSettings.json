@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApplication1": {
+    "egitim_proje": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
@@ -26,3 +26,4 @@
     }
   }
 }
+//WebApplication1
